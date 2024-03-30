@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+
+    {% block title %}
+    {% endblock title%}
+
+    {% block content %}
+    {% if perms.FBoard.change_post %}
+    <h2>Все объявления</h2>
+
+    <a href="{%url 'post_create'%}">
+        <button>Создать объявление</button>
+    </a>
+    <a href="{%url 'responses'%}">
+        <button>Личный чат</button>
+    </a>
+    {%endif%}
+
+    <table>
+        {% for post in posts %}
+            <tr>
+                {% autoescape off %}
+                <td>
+                    <a href="/posts/{{ post.id }}" style="font-size: 14px;"><b>{{ post.title }}</b></a> <p>{{post.content}}</p>
+                </td>
+                {% endautoescape %}
+                <td>{{ post.author }}</td>
+                <td>{{ post.category }}</td>
+                <td>
+                    {% if perms.FBoard.change_post %}
+                    <a href="{% url 'post_update' pk=post.id %}">Изменить / </a>
+                    {% endif %}
+                    {% if perms.FBoard.delete_post %}
+                    <a href="{% url 'post_delete' pk=post.id %}">Удалить</a>
+                    {% endif %}
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    {% endblock content %}

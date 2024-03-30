@@ -1,0 +1,30 @@
+{% block title %}
+Все отклики на объявления пользователя {{user.username}}
+{% endblock title%}
+
+{% block content %}
+
+<form action="", method="get">
+    {{filterset.form.as_p}}
+    <input type="submit", value="Найти">
+</form>
+ <a href="/posts/">
+    <button>На главную страницу</button>
+    </a>
+<hr>
+<h5>Все отклики на выбранное объявленипе:</h5>
+{% if filterset.qs %}
+{% for response in filterset.qs %}
+<h5>Отклик от пользователя {{ response.author }}: {{ response.text }}</h5>
+    {% if response.status == False %}
+    <a href="{% url 'response_accept' pk=response.id %}">Принять / </a>
+    <a href="{% url 'response_delete' pk=response.id %}">Удалить </a>
+    {% else %}
+    <b style="color:green">Отклик принят</b>
+    {%endif%}
+{%endfor%}
+{%else%}
+<h5>No resp</h5>
+{% endif %}
+
+{% endblock content %}

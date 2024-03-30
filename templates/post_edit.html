@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+{% block content %}
+<h1>Редактировать объявление</h1>
+<hr>
+<form action="" method="post" enctype="">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <input type="submit" value="Сохранить" />
+</form>
+
+<input type="button" value="Назад" onclick="javascript:history.go(-1)">
+{% endblock content %}

@@ -1,0 +1,33 @@
+
+{% block title %}
+Объявление
+{% endblock title %}
+
+{% block content %}
+    {% autoescape off %}
+        <h2>Объявление "{{ post.title }}" от {{post.author}} </h2>
+        <h5>{{ post.content }}</h5>
+    {% endautoescape %}
+
+<form action="{% url 'response_create' post.id %}" method="post" enctype="">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Сохранить" />
+</form>
+
+{%if post.response_set.all%}
+<h5>Все отклики</h5>
+{% for response in post.response_set.all %}
+<table>
+    <td>{{response.author.username}}</td>
+    <td>{{response.text}}</td>
+
+</table>
+
+{%endfor%}
+{%endif%}
+
+<a href="/posts/">
+    <button>На главную страницу</button>
+</a>
+{% endblock content %}
