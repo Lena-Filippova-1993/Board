@@ -35,7 +35,7 @@
 `pip install django-ckeditor`
 
 запустиить Celery
-`celery -A Board worker -l INFO -B`
+`celery -A Board worker -l INFO`
 
 запустить проект
 `py manage.py runserver`
