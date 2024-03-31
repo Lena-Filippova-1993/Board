@@ -41,6 +41,7 @@
 `py manage.py runserver`
 
 Главная страница - `http://127.0.0.1:8000/posts`
+
 Вход и регистрация - `http://127.0.0.1:8000/account/login/`
 
 
