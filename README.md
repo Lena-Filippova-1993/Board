@@ -6,28 +6,39 @@
 
 Для выполнения задания мы использовали:
 
-фреймворк Django
-allauth
-celery
-redis
-ckeditor
+-фреймворк Django
+
+-allauth
+
+-celery
+
+-redis
+
+-ckeditor
 
 Необходимо клонировать текущий репозиторий
+
 Создать виртуальное окружение
+
 Перейти в директорию проекта
 
 Для работы необходимо установить:
-pip install django-allauth
-pip install celery
-pip install redis  
-pip install -U "celery[redis]"
-pip install django-ckeditor
+
+`pip install django-allauth`
+
+`pip install celery`
+
+`pip install redis`
+
+`pip install -U "celery[redis]"`
+
+`pip install django-ckeditor`
 
 запустиить Celery
-celery -A Board worker -l INFO -B
+`celery -A Board worker -l INFO -B`
 
 запустить проект
-py manage.py runserver
+`py manage.py runserver`
 
 
 
