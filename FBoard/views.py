@@ -56,7 +56,13 @@ class PostDetail(DetailView, ResponseCreate):
     context_object_name = 'post'
     pk_url_kwarg = 'pk'
 
-
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     if Response.objects.filter(author_id=self.request.user.id).filter(post_id=self.kwargs.get('pk')):
+    #         context['respond'] = "Responsed"
+    #     elif self.request.user == Post.objects.get(pk=self.kwargs.get('pk')).author:
+    #         context['respond'] = "My"
+    #     return context
 
 
 class PostCreate(LoginRequiredMixin, CreateView):

@@ -201,3 +201,4 @@ CELERY_RESULT_BACKEND = 'redis://default:b0gDNhqnQZKWIo8wZLRjk0fEaYMEEbbp@redis-
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
